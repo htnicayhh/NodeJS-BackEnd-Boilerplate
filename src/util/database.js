@@ -1,24 +1,15 @@
 import mysql from 'mysql'
 import config from '../config/config.js'
-import { STATUS } from '../constant/status.js'
-import { response } from './responseCheck.js'
+// create database
+const connection = mysql.createPool(config.MYSQL_URL);
 
-const connection = mysql.createConnection(config.MYSQL_URL)
-
-export const queryAll = async (res, req, next) => {
-    connection.query('select * from userzonex', (error, recordset) => {
-        if (error) {
-            next(error)
-        } 
-        return console.log(response(STATUS.NOT_ERROR.CODE, STATUS.NOT_ERROR.MESSAGE, recordset))
-    })
-}
-export const getConnection = async (req, res, next) => {
-    connection.connect((error) => {
-        if (error) {
-            console.log(error.message)
-        } else {
-            console.log('Connect Complete...')
-        }
-    })
-}
+export const query = async (sql, params) => {
+    return new Promise((resolve, reject) => {
+        connection.query(sql, params, (error, results) => {
+            if (error) {
+                return reject(error);
+            }
+            return resolve(results);
+        });
+    });
+};
