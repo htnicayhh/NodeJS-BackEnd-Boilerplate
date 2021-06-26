@@ -1,7 +1,9 @@
-import getDataRouter from "./getData/getData.router.js"
+import ProductRouter from './product/getAllProduct/ProductRouter'
+import FilterProductRouter from './product/filterProduct/FilterProductRouter'
+import DefaultRouter from './default/DefaultRouter'
 
-function route(app) {
-    app.use('/', getDataRouter)
-}
-
-export default route
+export default [
+    DefaultRouter,
+    ProductRouter,
+    FilterProductRouter
+]

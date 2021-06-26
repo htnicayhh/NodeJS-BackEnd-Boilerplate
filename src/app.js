@@ -1,11 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
-import mysql from 'mysql'
-import config from './config/config.js'
-import { STATUS } from './constant/status.js'
-import getDataRouter from './component/router.js'
-import route from './component/router.js'
+import routers from './component/router';
 
 const PORT = 3000
 const app = express()
@@ -20,8 +16,10 @@ app.use(bodyParser.urlencoded({
 }))
 
 
-// Connecting to MySQL
-route(app)
+// initialize routers
+for (const router of routers) {
+    app.use(router.path, router.router)
+  }
 
 // App Listen
 app.listen(PORT, () => {
