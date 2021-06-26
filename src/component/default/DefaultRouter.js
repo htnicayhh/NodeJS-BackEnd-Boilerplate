@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-const path = '/home'
+const path = '/'
 const router = Router()
 
 router.get('/', (req, res) => {
