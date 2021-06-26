@@ -3,7 +3,7 @@ import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import routers from './component/router';
 
-const PORT = 3000
+const PORT = 3001
 const app = express()
 
 // Morgan
