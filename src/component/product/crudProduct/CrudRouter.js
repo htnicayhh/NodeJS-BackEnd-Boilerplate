@@ -6,6 +6,6 @@ const path = '/categories'
 const router = Router()
 
 router.get('/filter-product', errorHandler(RestController.filterProductController))
-router.delete('/delete-product', errorHandler(RestController.deleteProductController))
+router.put('/update-product', errorHandler(RestController.updateProductController))
 
 export default { path, router }

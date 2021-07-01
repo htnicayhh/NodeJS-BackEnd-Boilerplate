@@ -1,19 +1,26 @@
 import { query } from "../../../util/database"
 
-export const filterProducts = async (ID) => {
-    let filterSQL = 'select * from products where ID_Cate = ?'
-    const categoriesID = await query(filterSQL, ID)
+export const filterProducts = async (id) => {
+    let filterSQL = 'SELECT * FROM products WHERE ID_Cate = ?'
+    const categoriesID = await query(filterSQL, id)
     return categoriesID
 }
 
-export const deleteProducts = async (ID) => {
-    let deleteSQL = 'delete from products where ID = ?'
-    const deleteID = await query(deleteSQL, ID)
+export const updateProducts = async (id, data) => {
+    let updateSQL = 'UPDATE products SET ? WHERE ID_Cate = ?'
+    const updateID = await query(updateSQL, [data, id])
+    return updateID
+}
+
+export const createProducts = async (data) => {
+    let createSQL = 'INSERT INTO products SET ?'
+    const createID = await query(createSQL, data)
+    return createID
+}
+
+export const deleteProducts = async (id) => {
+    let deleteSQL = 'DELETE FROM products WHERE ID = ?'
+    const deleteID = await query(deleteSQL, id)
     return deleteID
 }
 
-export const createProducts = async (ID_Cate, ID, Name, Image, Price, Count, Description) => {
-    let createSQL = 'insert into products (ID_Cate, ID, Name, Image, Price, Count, Description) values (?, ?, ?, ?, ?, ?, ?)'
-    const result = await query(createSQL, {ID_Cate, ID, Name, Image, Price, Count, Description})
-    return result
-}
