@@ -15,6 +15,11 @@ export const query = async (sql, params) => {
     });
 };
 
+export const queryOne = async (sql, params) => {
+    const results = await query(sql, params)
+    return results[0]
+}
+
 export const getConnection = async () => {
     return new Promise((resolve, reject) => {
         pool.getConnection((err, connection) => {
