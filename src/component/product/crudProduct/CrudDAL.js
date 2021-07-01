@@ -7,7 +7,7 @@ export const filterProducts = async (id) => {
 }
 
 export const updateProducts = async (id, data) => {
-    let updateSQL = 'UPDATE products SET ? WHERE ID_Cate = ?'
+    let updateSQL = 'UPDATE products SET ? WHERE ID = ?'
     const updateID = await query(updateSQL, [data, id])
     return updateID
 }
