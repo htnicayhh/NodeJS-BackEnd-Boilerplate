@@ -10,7 +10,7 @@ export const filterProductController = async (req, res) => {
 
 export const updateProductController = async (req, res) => {
     let data = req.body
-    let id = req.query.id
+    let id = req.params.id
     await Crud.updateProducts(id, data)
     res.json({MESSAGE: 'Update Complete ...'})
 }
