@@ -1,4 +1,4 @@
-import { STATUS } from "../constant/status.js"
+import { STATUS } from "../constant/Status.js"
 
 export const response = 
     (CODE = STATUS.NOT_ERROR.CODE,
