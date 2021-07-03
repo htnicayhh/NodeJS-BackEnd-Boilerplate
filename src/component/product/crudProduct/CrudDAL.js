@@ -1,4 +1,4 @@
-import { query } from "../../../util/database"
+import { query } from "../../../util/Database"
 
 export const filterProducts = async (id) => {
     let filterSQL = 'SELECT * FROM products WHERE ID_Cate = ?'

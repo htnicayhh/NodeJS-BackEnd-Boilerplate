@@ -1,4 +1,4 @@
-import { query } from '../../../util/database'
+import { query } from '../../../util/Database'
 
 export const getAllProductDAL = async () => {
     let sql = 'select * from products order by ID_Cate'

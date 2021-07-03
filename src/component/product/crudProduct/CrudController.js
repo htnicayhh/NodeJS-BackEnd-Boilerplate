@@ -1,5 +1,5 @@
 import { STATUS } from '../../../constant/status'
-import { response } from '../../../util/responseCheck'
+import { response } from '../../../util/ResponseCheck'
 import * as Crud from './CrudDAL'
 
 export const filterProductController = async (req, res) => {
