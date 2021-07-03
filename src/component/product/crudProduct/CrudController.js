@@ -1,4 +1,4 @@
-import { STATUS } from '../../../constant/status'
+import { STATUS } from '../../../constant/Status'
 import { response } from '../../../util/ResponseCheck'
 import * as Crud from './CrudDAL'
 

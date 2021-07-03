@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { errorHandler } from "../../../middleware/errorHandler"
+import { errorHandler } from "../../../middleware/ErrorHandler"
 import * as RestController from './CrudController'
 
 const path = '/categories'
