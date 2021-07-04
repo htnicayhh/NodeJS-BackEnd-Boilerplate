@@ -1,10 +1,12 @@
 import express from 'express'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
+import dotenv from 'dotenv'
 import routers from './component/router'
 
 const PORT = 3000
 const app = express()
+dotenv.config()
 
 // Morgan
 app.use(morgan('combined'))
