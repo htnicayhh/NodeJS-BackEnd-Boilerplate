@@ -6,14 +6,17 @@ export const jwtToken = async (req, res, next) => {
     const token = authorization.split(' ')[1] // Get token
     if (token) {
         try {
-            const tokenValid = await JwtUtil.verifyToken(token)
-            req.tokenValid = tokenValid // Save intto req for later processing...
+            const tokenValid = await JwtUtil.verifyToken(token, Config.JWT_SECRET)
+            req.tokenValid = tokenValid // Save into req for later processing...
             next()
         } catch (error) {
-            res.statusSend(ERRORS.UNAUTHORIZE_ERROR)
+            res.sendStatus(ERRORS.UNAUTHORIZE_ERROR)
         }
     } else {
         next(ERRORS.TOKEN_REQUIRED)
     }
+}
 
+export const refreshToken = async (req, res, next) => {
+    
 }
