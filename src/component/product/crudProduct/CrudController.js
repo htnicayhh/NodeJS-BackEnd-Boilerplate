@@ -2,9 +2,9 @@ import { STATUS } from '../../../constant/Status'
 import { response } from '../../../util/ResponseCheck'
 import * as Crud from './CrudDAL'
 
-export const filterProductController = async (req, res) => {
+export const getProductController = async (req, res) => {
     let id = parseInt(req.query.id)
-    const data = await Crud.filterProducts(id)
+    const data = await Crud.getProductByID(id)
     res.send(response(STATUS.NOT_ERROR.CODE, STATUS.NOT_ERROR.MESSAGE, data))
 }
 
@@ -17,7 +17,7 @@ export const updateProductController = async (req, res) => {
 
 export const createProductController = async (req, res) => {
     let data = req.body
-    const dataCreate = await Crud.createProducts(data)
+    const dataCreate = await Crud.createProduct(data)
     res.json({MESSAGE: 'Create Success'})
 }
 
