@@ -10,7 +10,7 @@ const router = Router()
 // router.post('/login', errorHandler(login))
 // router.post('/regist', errorHandler(regist))
 router.post('/gettoken', errorHandler(createToken))
-router.get('/infomation', jwtToken, errorHandler(getUser))
+router.get('/infomation',jwtToken, errorHandler(getUser))
 
 export default { path, router }
 
