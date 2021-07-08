@@ -4,7 +4,7 @@ import { TOKEN } from '../constant/Token'
 
 export const createToken = (payload, options) => {
     return new Promise((resolve, reject) => {
-        jwt.sign(payload, Config.JWT_SECRET, options || { expiresIn: TOKEN.TOKEN_EXPIRED }, (err, data) => {
+        jwt.sign(payload, Config.JWT_SECRET, options || { expiresIn: '15s' }, (err, data) => {
             if (!err) {
                 resolve(data)
             } else {
