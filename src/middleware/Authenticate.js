@@ -12,7 +12,7 @@ export const jwtToken = async (req, res, next) => {
                 req.tokenValid = tokenValid // Save into req for later processing...
                 next()
             } catch (error) {
-                res.sendStatus(ERRORS.UNAUTHORIZE_ERROR)
+                res.json(ERRORS.UNAUTHORIZE_ERROR)
             }
         }
     } else {
