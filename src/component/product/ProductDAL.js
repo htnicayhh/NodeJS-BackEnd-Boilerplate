@@ -14,7 +14,7 @@ export const getProductByID = async (ID) => {
 
 export const createProduct = async (product) => {
     let sql = 'INSERT INTO products (ID_Cate, Name, Image, Price, Count, Deleted) VALUES (?, ?, ?, ?, ?, 0)'
-    const result = await Database.query(sql, [product.ID_Cate, product.Name, product.Image, product.Price || 0, product.Count || 0])
+    const result = await Database.query(sql, [product.ID_Cate, product.Name, product.Image || '', product.Price || 0, product.Count || 0])
     return result
 }
 
