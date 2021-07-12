@@ -8,8 +8,8 @@ export const getAllProductController = async (req, res, next) => {
 }
 
 export const getProductByIDController = async (req, res, next) => {
-    const { id } = req.params
-    const result = await productDAL.getProductByID(id)
+    const { ID } = req.params
+    const result = await productDAL.getProductByID(ID)
     res.status(200).send(response(result))
 }
 
@@ -24,8 +24,8 @@ export const createProductController = async (req, res, next) => {
 }
 
 export const deleteProductController = async (req, res, next) => {
-    let { id } = req.params?.ID
-    const result = await productDAL.deleteProduct(id)
+    let { productID } = req.params?.productID
+    const result = await productDAL.deleteProduct(productID)
     res.status(200).send(response({
         deleteProduct: result
     }))
