@@ -1,8 +1,8 @@
 import { STATUS } from "../constant/Status.js"
 
 export const response = 
-    (CODE = STATUS.NOT_ERROR.CODE,
-    MESSAGE = STATUS.NOT_ERROR.MESSAGE,
-    DATA) => {
+    (DATA,
+    CODE = STATUS.NOT_ERROR.CODE,
+    MESSAGE = STATUS.NOT_ERROR.MESSAGE) => {
         return { CODE, MESSAGE, DATA }
     }
