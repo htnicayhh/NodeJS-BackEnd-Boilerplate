@@ -27,6 +27,14 @@ export const deleteProductController = async (req, res, next) => {
     let { id } = req.params?.ID
     const result = await productDAL.deleteProduct(id)
     res.status(200).send(response({
-        deleleProductID: id
+        deleteProduct: result
     }))
+}
+
+export const searchProductController = async (req, res, next) => {
+
+}
+
+export const updateProductController = async (req, res, next) => {
+    
 }
