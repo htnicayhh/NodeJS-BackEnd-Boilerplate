@@ -5,7 +5,7 @@ import * as Crud from './CrudDAL'
 export const getProductController = async (req, res) => {
     let id = parseInt(req.query.id)
     const data = await Crud.getProductByID(id)
-    res.send(response(STATUS.NOT_ERROR.CODE, STATUS.NOT_ERROR.MESSAGE, data))
+    res.send(response(data, STATUS.NOT_ERROR.CODE, STATUS.NOT_ERROR.MESSAGE))
 }
 
 export const updateProductController = async (req, res) => {
