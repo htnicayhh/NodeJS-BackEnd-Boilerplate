@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import routers from './component/router'
+import corsMiddleware from './middleware/Cors'
 
 const PORT = 3000
 const app = express()
@@ -16,6 +17,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+
+// CorsOptions
+app.use(corsMiddleware)
 
 
 // initialize routers
