@@ -32,7 +32,8 @@ export const deleteProductController = async (req, res, next) => {
 }
 
 export const searchProductController = async (req, res, next) => {
-
+    let result = await productDAL.searchProduct(req.query?.search, req.query?.name)
+    res.status(200).send({ result })
 }
 
 export const updateProductController = async (req, res, next) => {

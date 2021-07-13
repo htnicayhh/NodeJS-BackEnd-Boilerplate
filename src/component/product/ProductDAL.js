@@ -25,9 +25,21 @@ export const deleteProduct = async (itemID) => {
 }
 
 export const searchProduct = async (search, name) => {
-
+    let sql = 'SELECT * FROM products WHERE 1 = 1'
+    let params = []
+    if (name) {
+        sql += ' AND Name = ?'
+        params.push(name)
+    }
+    if (search) {
+        sql += ' AND LOWER(Name) LIKE ?'
+        params.push('%' + search.toLowerCase() + '%')
+    }
+    const result = await Database.query(sql, params)
+    return result
 }
 
 export const updateProduct = async (productID, name) => {
 
 }
+
