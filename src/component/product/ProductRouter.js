@@ -19,7 +19,7 @@ router.get('/all', jwtToken, Pagination(1, 8), errorHandler(getAllProductControl
 router.get('/search', jwtToken, errorHandler(searchProductController))
 router.get('/:ID', jwtToken, errorHandler(getProductByIDController))
 router.post('/create', jwtToken, errorHandler(createProductController))
-router.put('/:productID', jwtToken, isAdmin, error(updateProductController))
+router.put('/:productID', jwtToken, isAdmin, errorHandler(updateProductController))
 router.delete('/:productID', jwtToken, isAdmin, errorHandler(deleteProductController))
 
 export default { path, router }
