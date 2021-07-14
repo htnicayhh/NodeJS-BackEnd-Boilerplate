@@ -1,4 +1,3 @@
-
 export const Pagination = (page = 1, size = 8) =>
     async (req, res, next) => {
         let Page = parseInt(req.query.page) || page
@@ -10,4 +9,3 @@ export const Pagination = (page = 1, size = 8) =>
         req.Pagination.page = Page
         req.Pagination.size = Size
     }
-
