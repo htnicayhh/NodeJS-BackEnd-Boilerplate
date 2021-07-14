@@ -1,10 +1,10 @@
-GET  http://localhost:3000/auth/infomation
-Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikh5YWNpbnRoIiwiaWF0IjoxNjI1NzcwOTQ1LCJleHAiOjE2MjU3NzA5NjB9.aJ51uq8t8gSpytnDNSYOvz9cAwIRwVZ56vjuaX5nHr8
+GET http://localhost:3000/users
 
-###
-POST http://localhost:3000/auth/gettoken
+### 
+POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "username": "Hyacinth"
+    "name": "Hyacinth",
+    "password": "htnicayh"
 }
