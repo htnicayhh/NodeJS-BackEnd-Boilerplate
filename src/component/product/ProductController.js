@@ -37,5 +37,11 @@ export const searchProductController = async (req, res, next) => {
 }
 
 export const updateProductController = async (req, res, next) => {
-    
+    const { ID } = req.params
+    const { update } = req.body
+    let result = await productDAL.updateProduct(ID, update)
+    res.status(201).send(response({
+        productID: ID,
+        result: result
+    }))
 }
