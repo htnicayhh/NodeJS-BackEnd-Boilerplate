@@ -1,4 +1,5 @@
 import * as Database from '../../util/Database'
+import { ERRORS } from '../../constant/Errors'
 
 export const getAllProduct = async () => {
     let sql = 'SELECT * FROM products order by ID_Cate'
@@ -39,7 +40,50 @@ export const searchProduct = async (search, name) => {
     return result
 }
 
-export const updateProduct = async (productID, name) => {
-
+export const updateProduct = async (productID, update) => {
+    let sql = 'UPDATE products SET 1 = 1'
+    let params = []
+    if (update.ID_Cate) {
+        sql += ', ID_Cate = ?'
+        params.push(update.ID_Cate)
+    }
+    if (update.ID) {
+        sql += ', ID = ?'
+        params.push(update.ID)
+    }
+    if (update.Name) {
+        sql += ', Name = ?'
+        params.push(update.Name)
+    }
+    if (update.Price) {
+        if (parseInt(update.Price) < 0) {
+            throw ERRORS.INVALID_INPUT_PARAMS
+        } else {
+            sql += ', Price = ?'
+            params.push(update.Price)
+        }
+    }
+    if (update.Image) {
+        sql += ', Image = ?'
+        params.push(update.Image)
+    }
+    if (update.Count) {
+        if (update.Count < 0) {
+            throw ERRORS.INVALID_INPUT_PARAMS
+        } else {
+            sql += ', Count = ?'
+            params.push(update.Count)
+        }
+    }
+    if (update.Description) {
+        sql += ', Description = ?'
+        params.push(update.Description)
+    }
+    let sqlMiddle = 'WHERE ID = ?'
+    params.push(ID)
+    let sqlFinally = sql + sqlMiddle
+    let result = await database.query(sqlFinally, params)
+    return result
+    
 }
 
